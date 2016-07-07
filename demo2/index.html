@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script> -->
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <!-- 注意type的值 -->
+    <script type="text/babel">
+      var users = ["张三", "李四", "王五"];
+
+      ReactDOM.render(
+        <div>
+          {
+            users.map(function(user){
+                return <div>Hello, {user}!</div>
+            })
+          }
+        </div>,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>

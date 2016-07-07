@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script> -->
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <!-- 注意type的值 -->
+    <script type="text/babel">
+    <!-- 用createClass方法创建组件类,  类名称首字母必须大写!!! -->
+      var HelloMessage = React.createClass({
+      render: function(){
+          return <h1>Hello  {this.props.name}</h1>
+      }
+      });
+
+
+      ReactDOM.render(
+        <HelloMessage  name="XY"/>,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
