@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React!</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script> -->
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+
+      //input text
+      var Input = React.createClass({
+          getInitialState: function(){
+              return {value: 'Hello'};
+          },
+          handleChange: function(event){
+             this.setState({value: event.target.value});
+          },
+          render: function(){
+             var value = this.state.value;
+             return(
+                 <div>
+                   <input type="text" value={value} onChange={this.handleChange}/>
+                   <p>{value}</p>
+                 </div>
+             );
+          },
+      });
+      
+      //input area
+      var TextArea = React.createClass({
+       
+       getInitialState: function(){
+           return {value: 'textArea'};
+       },
+       
+       handleChange: function(event){
+           this.setState({value: event.target.value});
+       },
+       render: function(){
+           var value = this.state.value;
+           return (
+              <div>
+                <textarea  name="textarea" id="textarea" cols="30" rows="10" onChange={this.handleChange} value={value}></textarea>
+                <p>{value}</p>
+              </div>
+           );
+       },
+
+      });
+      
+      //input checkbox
+      var Checkbox = React.createClass({
+         
+         getInitialState: function(){
+            return {checked: true};
+         },
+         
+         handleChange: function(event){
+            this.setState({checked: event.target.checked});
+         },
+         render: function(){
+            var checked = this.state.checked;
+            return (
+              <div>
+                <input type="checkbox" checked={checked} onChange={this.handleChange}/>checkbox
+              </div>
+            );
+         },
+
+      });
+      
+
+      ReactDOM.render(
+        <div><Input /> <TextArea /> <Checkbox /></div>,
+        document.getElementById("example")
+      );
+    </script>
+  </body>
+</html>
